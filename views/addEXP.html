@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Help laphophora</title>
+     <link rel = "stylesheet" href="styles.css"/>
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+     <script>$(document).ready(function(){   
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 130) {
+            $('#scroller').fadeIn();
+        } else {
+            $('#scroller').fadeOut();
+        }
+    });
+});</script>
+     <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+
+     <style>
+</style>
+ </head>
+ <body>
+   <header>
+    <h1 font-size="20px">la'phophora</h1>
+           </header>
+        <nav>
+         <ul>
+<li><a href="http://laphophora.jabkadev.com/category/news/">Новости</a></li><li style="float:center"><a href="index.html">Подобрать</a></li><li><a href="http://laphophora.jabkadev.com/category/trends/">Тренды</a></li>
+  
+ 
+         </ul>
+              <hr class="head">
+        </nav>
+       
+  <form action="/adder" method="POST" align="center">  
+   <table align="center" cellpadding="0">
+        <tr> 
+            <th>
+                 <div class="nameName">Введите наименование</div>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                 <div class ="name">
+                 <textarea rows="1" cols=100 name="name"></textarea>
+                 </div>
+            </td>
+        </tr>
+            <tr>
+            <th>
+              Введите ссылку
+            </th>
+            </tr>
+        <tr>
+            <td>
+                <div class ="src">
+                   
+                <textarea rows="1" cols="100" name="src"></textarea>
+                
+                </div>
+            </td>
+        </tr>
+            <tr>
+            <th>
+                Введите ссылку на изображение
+            </th>
+            </tr>
+        <tr>
+            <td>
+                <div class ="imgsrc">
+                   
+                <textarea rows="1" cols="100" name="imgsrc"></textarea>
+                   
+                </div>
+            </td>
+        </tr>
+                <tr>
+            <td>  
+                <hr class="tag">
+                <div class="ageH">Предположительный возраст покупателя</div>
+            </td>  
+                </tr>
+            <tr>
+                <td>
+                <div class ="age">
+                    <p><input name="Age" type="checkbox" value="1"> Меньше 10</p>
+                    <p><input name="Age" type="checkbox" value="2"> Больше 10, но меньше 20</p>
+                    <p><input name="Age" type="checkbox" value="3"> Больше 20, но меньше 30</p>
+                    <p><input name="Age" type="checkbox" value="4"> Больше 30, но меньше 40</p>
+                    <p><input name="Age" type="checkbox" value="6"> Больше 50, но меньше 60</p>
+                </div>
+                </td>    
+            </tr> 
+            <tr>
+             <td>
+                <div class="genderH">Предположительный пол</div>
+             </td>    
+            </tr>
+               <tr>
+            <td>
+                <div class ="gender">
+            <p><input name="Gender" type="checkbox" value="1"> Мужчина</p>
+            <p><input name="Gender" type="checkbox" value="2"> Женщина</p>
+                </div>
+            </td>
+                </tr>
+                <tr>
+            <td>
+                <div class="eventH">Предположительное событие</div>
+            </td> 
+                </tr>
+                <tr>
+                    <td>
+                <div class ="event">
+                <p><input name="Event" type="checkbox" value="Birthday"> На день рождения</p>
+                <p><input name="Event" type="checkbox" value="Wedding"> На свадьбу (гость)</p>
+                <p><input name="Event" type="checkbox" value="BusinessMeeting"> Для деловой встречи</p>
+                <p><input name="Event" type="checkbox" value="Work"> Для работы на каждый день</p>
+                <p><input name="Event" type="checkbox" value="Weekend"> Для выходного дня</p>
+                </div>
+                    </td>
+                </tr>
+                <tr>
+            <td>
+                <div class="styleH">Предположительный стиль одежды</div>
+            </td> 
+                </tr>
+        <tr>   
+            <td>
+                <div class ="style">
+                    <p><input name="Style" type="checkbox" value="Strong"> Строгий</p>
+                    <p><input name="Style" type="checkbox" value="Soft"> Свободный</p>
+                    <p><input name="Style" type="checkbox" value="Bright"> Яркий</p>
+                </div>        
+            </td>      
+        </tr>
+    </table>
+      <div class="Enter">
+                 <p><input class="EntBtn" type="submit" value="Добавить"></p>
+          </div>
+      <script>
+  ADDelem.onclick = function() {
+      var Age;
+      var Seks;
+      var Event;
+      var Style;
+
+        var rad=document.getElementsByName('Age');
+    for (var i=0;i<rad.length; i++) {
+        if (rad[i].checked) {
+            Age = rad[i].value;
+        }
+    }
+      
+        var rad=document.getElementsByName('Gender');
+    for (var i=0;i<rad.length; i++) {
+        if (rad[i].checked) {
+            Gender = rad[i].value;
+        }
+    }
+      
+        var rad=document.getElementsByName('Event');
+    for (var i=0;i<rad.length; i++) {
+        if (rad[i].checked) {
+            Event = rad[i].value;
+        }
+    }
+        var rad=document.getElementsByName('Style');
+    for (var i=0;i<rad.length; i++) {
+        if (rad[i].checked) {
+            Style = rad[i].value;
+        }
+    }
+  };
+</script>
+         </form> 
+
+     <div id="scroller">
+      <div class="coontainer">
+          <button class ="FootButn">Choose </button>
+         </div>
+     </div>
+         <hr id="scroller">
+     
+ </body>
+</html>

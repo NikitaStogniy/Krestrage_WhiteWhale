@@ -1,0 +1,110 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Krestrage | Hello moto</title>
+    <link rel = "stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+   </head>
+<body>
+<div class="main_div">
+<header>
+    <ul class="nav nav-ui">
+        <li class="nav-item">
+            <a class="nav-link active" href="/">Krestrage</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/">Главная</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/landos">Крестраж</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/partners">Партнеры</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/contacts">Контакты</a>
+        </li>
+        <li class="nav-item" id='sign_in'>
+            <a class="nav-link" href="#">Зарегистрироватся по электронной почте</a>
+        </li>
+        <li class="nav-item" id='vk'>
+            <a class="nav-link" href="OAUTH_VK"></a>
+        </li>
+        <li class="nav-item" id='facebook'>
+            <a class="nav-link" href="OAUTH_VK"></a>
+        </li>
+        <li class="nav-item" id='log_in'>
+            <a class="nav-link" href="LOGIN">Войти</a>
+        </li>
+
+    </ul>
+        </header>
+
+<form align="center">
+
+<div class="query_result_div">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col">
+
+                <p class="big_h">Эти вещи созданы для вас:</p>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+            <% for(var i=0; i<cardName.length; i++) {%>
+            <div class="col">
+
+                <div class="cloth_card">
+
+                    <div class="cloth_image" style="background-image: url('<%=cardImage[i] %>')"></div>
+
+                    <div class="cloth_name_block">
+
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="col">
+
+                        <div class="like_div" href="/like/<%=cardId[i] %>"></div>
+
+                                </div>
+
+                                <div class="col">
+
+                        <div class="name_div"><%=cardName[i] %></div>
+
+                                </div>
+
+                                <div class="col">
+
+                        <div class="more_div" href="/more/<%=cardId[i] %>"></div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <%} %>
+
+        </div>
+
+    </div>
+
+</div>
+
+    </form>
+</div>
+      </body>
+     </html>

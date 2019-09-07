@@ -1,0 +1,112 @@
+<p>jProject &quot;<font color="597f8a">Lophophore</font>&quot;</p>
+<p>Пройдите тест и мы определим подходящую вещь.</p>
+<p>Сколько вам лет?</p>
+<p><input name="AGE" type="radio" value="20"> До 20</p>
+<p><input name="AGE" type="radio" value="30"> До 30</p>
+<p><input name="AGE" type="radio" value="40"> До 40</p>
+<p><input name="AGE" type="radio" value="50"> До 50</p>
+<p><input name="AGE" type="radio" value="100"> После 50</p>
+<p>Вы выбираете одежду на конкретное событие или для повседневного ношения?</p>
+<p><input name="Event" type="radio" value="Birthday"> На день рождения</p>
+<p><input name="Event" type="radio" value="Wedding"> На свадьбу (гость)</p>
+<p><input name="Event" type="radio" value="BusinessMeeting"> Для деловой встречи</p>
+<p><input name="Event" type="radio" value="Work"> Для работы на каждый день</p>
+<p><input name="Event" type="radio" value="Weekend"> Для выходного дня</p>
+<p>Какой стиль одежды предпочитаете?</p>
+<p><input name="Style" type="radio" value="Strong">Строгий</p>
+<p><input name="Style" type="radio" value="Soft">Свободный</p>
+<p><input name="Style" type="radio" value="Bright">Яркий</p>
+<p><input name="Style" type="radio" value="Restrained">Сдержанный</p>
+<p><input name="confirm" type="button" value="Подтвердить!"></p>
+
+
+
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Переключатели</title>
+ </head>
+ <body>
+  <form>
+<p><b>Сколько вам лет?</b></p>
+<p><input name="Age" type="radio" value="From10to20"> От 10 до 20</p>
+<p><input name="Age" type="radio" value="From20to30"> От 20 до 30</p>
+<p><input name="Age" type="radio" value="From30to40"> От 30 до 40</p>
+<p><input name="Age" type="radio" value="From40to50"> От 40 до 50</p>
+      
+<p>Вы выбираете одежду на конкретное событие или для повседневного ношения?</p>
+<p><input name="Event" type="radio" value="Birthday"> На день рождения</p>
+<p><input name="Event" type="radio" value="Wedding"> На свадьбу (гость)</p>
+<p><input name="Event" type="radio" value="BusinessMeeting"> Для деловой встречи</p>
+<p><input name="Event" type="radio" value="Work"> Для работы на каждый день</p>
+<p><input name="Event" type="radio" value="Weekend"> Для выходного дня</p>
+      
+<p>Какой стиль одежды предпочитаете?</p>
+<p><input name="Style" type="radio" value="Strong">Строгий</p>
+<p><input name="Style" type="radio" value="Soft">Свободный</p>
+<p><input name="Style" type="radio" value="Bright">Яркий</p>
+<p><input name="Style" type="radio" value="Restrained">Сдержанный</p>
+<p><input id=elem type="submit" value="Выбрать"></p>
+      <script>
+  elem.onclick = function() {
+      var Age;
+      var Event;
+      var Style;
+      
+       var rad=document.getElementsByName('Age');
+    for (var i=0;i<rad.length; i++) {
+        if (rad[i].checked) {
+            Age = rad[i].value;
+             alert('Age '+age+'\nEvent '+Event+'\nStyle '+Style);
+        }
+    }
+        var rad=document.getElementsByName('Event');
+    for (var i=0;i<rad.length; i++) {
+        if (rad[i].checked) {
+            Event = i;
+             alert('Age '+age+'\nEvent '+Event+'\nStyle '+Style);
+        }
+    }
+        var rad=document.getElementsByName('Style');
+    for (var i=0;i<rad.length; i++) {
+        if (rad[i].checked) {
+            Style = i;
+             alert('Age '+age+'\nEvent '+Event+'\nStyle '+Style);
+        }
+    }
+  };
+</script>
+  </form> 
+ </body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Переключатели</title>
+ </head>
+ <body>
+  <form>
+   <p><b>Сколько вам лет?</b></p>
+    <p><input name="Age" type="radio" value="From10to20"> От 10 до 20</p>
+    <p><input name="Age" type="radio" value="From20to30"> От 20 до 30</p>
+   <p><input name="Age" type="radio" value="From30to40"> От 30 до 40</p>
+      <p><input name="Age" type="radio" value="From40to50"> От 40 до 50</p>
+    
+     
+      <script>
+  elem.onclick = function() {
+       var rad=document.getElementsByName('Age');
+    for (var i=0;i<rad.length; i++) {
+        if (rad[i].checked) {
+            alert('Выбран '+i+' radiobutton');
+        }
+    }
+  };
+</script>
+  </form> 
+ </body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>laphophora</title>
+     <link rel = "stylesheet" href="styles.css"/>
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+     <script    src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+     <script>$(document).ready(function(){   
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 130) {
+            $('#scroller').fadeIn();
+        } else {
+            $('#scroller').fadeOut();
+        }
+    });
+});</script>
+     <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+
+     <style>
+</style>
+ </head>
+ <body>
+   <header>
+    <h1 font-size="20px">la'phophora</h1>
+           </header>
+        <nav>
+         <ul>
+             
+  <li><a href="laphophora.jabkadev.com">Новости</a></li><li style="float:center"><a href="hand.html">Подобрать</a></li><li><a href="laphophora.jabkadev.com">Тренды</a></li>
+  
+ 
+         </ul>
+              <hr class="head">
+        </nav>
+       
+  <form action="/handler" method="POST" align="center">  
+   <table align="center" cellpadding="0">
+                <tr>
+            <td>  
+                <div class="ageH">Ваш возраст</div>
+            </td>  
+                </tr>
+            <tr>
+                <td>
+                <div class ="age">
+                     <p><input name="Age" type="radio" value="1"> От 0 до 6 лет</p>
+                    <p><input name="Age" type="radio" value="2"> От 7 до 15 лет</p>
+                    <p><input name="Age" type="radio" value="3"> От 15 до 20 лет</p>
+                    <p><input name="Age" type="radio" value="4"> От 20 до 30 лет
+                    <p><input name="Age" type="radio" value="5">  От 30 до 45 лет</p>
+                     <p><input name="Age" type="radio" value="6"> 45+ лет</p>
+                    <p><input name="Size" type="checkbox" value="1"> Size+</p>
+                </div>
+                </td>    
+            </tr> 
+            <tr>
+             <td>
+                <div class="genderH">Ваш пол</div>
+             </td>    
+            </tr>
+               <tr>
+            <td>
+                <div class ="gender">
+            <p><input name="Gender" type="radio" value="1"> Мужчина</p>
+            <p><input name="Gender" type="radio" value="2"> Женщина</p>
+                </div>
+            </td>
+                </tr>
+                <tr>
+            <td>
+                <div class="eventH">Для какого события выбираете одежду</div>
+            </td> 
+                </tr>
+                <tr>
+                    <td>
+                <div class ="event">
+                <p><input name="Event" type="radio" value="1"> На выход</p>
+                <p><input name="Event" type="radio" value="2"> На свадьбу (гость)</p>
+                <p><input name="Event" type="radio" value="3"> Для деловой встречи</p>
+                <p><input name="Event" type="radio" value="4"> Для работы (строгий стиль)</p>
+                <p><input name="Event" type="radio" value="5"> Для выходного дня</p>
+                <p><input name="Event" type="radio" value="6"> На каждый день</p>
+                <p><input name="Event" type="radio" value="7"> Пляжный отдых</p>
+                </div>
+                    </td>
+                </tr>
+                <tr>
+            <td>
+                <div class="styleH">Ваш предпочтительный стиль одежды</div>
+            </td> 
+                </tr>
+        <tr>   
+            <td>
+                <div class ="style">
+                   <p><input name="Style" type="radio" value="1"> Строгий</p>
+                    <p><input name="Style" type="radio" value="2"> Свободный</p>
+                    <p><input name="Style" type="radio" value="3"> Яркий</p>
+                    <p><input name="Style" type="radio" value="4"> Top Trands</p>
+                    <p><input name="Style" type="radio" value="5"> Дизайнерская одежда</p>
+                </div>        
+            </td>      
+        </tr>
+    </table>
+      <div class="Enter">
+                 <p><input class="EntBtn" type="submit" value="Подобрать!"></p>
+          </div>
+      <script>
+  ADDelem.onclick = function() {
+      var Age;
+      var Seks;
+      var Event;
+      var Style;
+      var Size;
+
+        var rad=document.getElementsByName('Age');
+    for (var i=0;i<rad.length; i++) {
+        if (rad[i].checked) {
+            Age = rad[i].value;
+        }
+    }
+      
+       var rad=document.getElementsByName('Size');
+    for (var i=0;i<rad.length; i++) {
+        if (rad[i].checked) {
+            Size = rad[i].value;
+        }
+    }
+      
+        var rad=document.getElementsByName('Gender');
+    for (var i=0;i<rad.length; i++) {
+        if (rad[i].checked) {
+            Gender = rad[i].value;
+        }
+    }
+      
+        var rad=document.getElementsByName('Event');
+    for (var i=0;i<rad.length; i++) {
+        if (rad[i].checked) {
+            Event = rad[i].value;
+        }
+    }
+        var rad=document.getElementsByName('Style');
+    for (var i=0;i<rad.length; i++) {
+        if (rad[i].checked) {
+            Style = rad[i].value;
+        }
+    }
+  };
+</script>
+         </form> 
+
+     <div id="scroller">
+      <div class="coontainer">
+          <button class ="FootButn">Choose </button>
+         </div>
+     </div>
+         <hr id="scroller">
+     
+ </body>
+</html>
