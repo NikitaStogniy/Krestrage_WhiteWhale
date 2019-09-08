@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mysql = require('mysql');
+var ejs = require('ejs');
 var app = express();
 
 var con = mysql.createConnection({
@@ -18,28 +19,17 @@ con.connect(function(err) {
 app.use(express.static(__dirname + "/views"));
 
     app.set("view engine", "ejs");
-    
-  //  app.set("view engine", "hbs");
-    
-/*app.post("/register", function (req, res) { 
-    if(!req.body) return res.sendStatus(400);
-    console.log(req.body);
-     age = req.body.userAge;
-     seks = req.body.Seks;
-    //res.sendfile('index.html');
-});
-*/
-    
+
 app.get('/', function(req, res) {
-    res.sendfile('views/index.html');
+    res.render("index", {
+        adBoxImg: ["https://images-na.ssl-images-amazon.com/images/I/51fDUP9N1vL._UX679_.jpg", "https://images-na.ssl-images-amazon.com/images/I/51fDUP9N1vL._UX679_.jpg", "https://images-na.ssl-images-amazon.com/images/I/51fDUP9N1vL._UX679_.jpg", "https://images-na.ssl-images-amazon.com/images/I/51fDUP9N1vL._UX679_.jpg"],
+        adBoxSrc: ["https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjDjqHtocHkAhUSwqYKHQwKBxsQjhx6BAgBEAI&url=https%3A%2F%2Fwww.amazon.com%2FClothe-Co-Moisture-Wicking-Athletic%2Fdp%2FB07C1RYZZC&psig=AOvVaw2PLB7rUysZwkfqLG5PgX-e&ust=1568033424873906", "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjDjqHtocHkAhUSwqYKHQwKBxsQjhx6BAgBEAI&url=https%3A%2F%2Fwww.amazon.com%2FClothe-Co-Moisture-Wicking-Athletic%2Fdp%2FB07C1RYZZC&psig=AOvVaw2PLB7rUysZwkfqLG5PgX-e&ust=1568033424873906", "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjDjqHtocHkAhUSwqYKHQwKBxsQjhx6BAgBEAI&url=https%3A%2F%2Fwww.amazon.com%2FClothe-Co-Moisture-Wicking-Athletic%2Fdp%2FB07C1RYZZC&psig=AOvVaw2PLB7rUysZwkfqLG5PgX-e&ust=1568033424873906", "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjDjqHtocHkAhUSwqYKHQwKBxsQjhx6BAgBEAI&url=https%3A%2F%2Fwww.amazon.com%2FClothe-Co-Moisture-Wicking-Athletic%2Fdp%2FB07C1RYZZC&psig=AOvVaw2PLB7rUysZwkfqLG5PgX-e&ust=1568033424873906"],
+        adBoxName: ["T-Shirt", "T-Shirt", "T-Shir", "T-Shi"]
+    });
 });
 
 app.get('/add', function(req, res) {
   res.sendfile('views/add.html');
-});
-
-app.get('/hand', function(req, res) {
-  res.sendfile('views/hand.html');
 });
 
 app.use('/', bodyParser.urlencoded({
@@ -106,10 +96,12 @@ app.post('/handler', function(req, res, next) {
  
   if (err) throw err;
 
-    con.query("SELECT COUNT(*) AS count FROM ClothesNames, TagAge, TagGender WHERE ClothesNames.id = TagAge.cid AND ClothesNames.id = TagGender.cid AND age = ? AND gender = ?", [req.body.Age, req.body.Gender], function (err, rows, fields) {
+    console.log(req.body.Age + " = = = Age \n" + req.body.radio_button_gender + "- - - Gendeg");
+
+    con.query("SELECT COUNT(*) AS count FROM ClothesNames, TagAge, TagGender WHERE ClothesNames.id = TagAge.cid AND ClothesNames.id = TagGender.cid AND age = ? AND gender = ?", [req.body.Age, req.body.radio_button_gender], function (err, rows, fields) {
     if (err) throw err;
     count = rows[0].count;
-
+        console.log(req.body.Age, req.body.radio_button_gender);
             if (count == 0) {
        res.writeHead(200, {'Content-Type': 'text/html'});
           res.write(
@@ -143,13 +135,13 @@ app.post('/handler', function(req, res, next) {
 +         '</header>'
 +       '<nav>'
 +        '<ul>'
-+ '<li><a href="">Новости</a></li><li style="float:center"><a href="hand.html">Подобрать</a></li><li><a href="">Тренды</a></li>'
++ '<li><a href="">Новости</a></li><li style="float:center"><a href="/">Подобрать</a></li><li><a href="">Тренды</a></li>'
 +         '</ul>'
 +          '    <hr class="head">'
 +      '</nav>'
 +  ' <table align="center" cellpadding="0">'
   +'<h1>Мы не смогли подобрать ни одной вещи!</h1>'
-                 +'<li class = second><a class ="EntBtn" href="/hand">Повторить выбор</a></li>'
+                 +'<li class = second><a class ="EntBtn" href="/">Повторить выбор</a></li>'
               +'</table>'
 +        '</body>'
 +        '</html>'
@@ -157,7 +149,7 @@ app.post('/handler', function(req, res, next) {
 
         res.end();  
     }
-            con.query("SELECT name, clothPoints, src, imgsrc, age, style, event, gender FROM ClothesNames, TagAge, TagEvent, TagGender, TagStyle WHERE ClothesNames.id = TagAge.cid AND ClothesNames.id = TagEvent.cid AND ClothesNames.id = TagGender.cid AND ClothesNames.id = TagStyle.cid AND age = ? AND gender = ? ", [req.body.Age, req.body.Gender], function (err, result, fields) {
+            con.query("SELECT name, clothPoints, src, imgsrc, age, style, event, gender FROM ClothesNames, TagAge, TagEvent, TagGender, TagStyle WHERE ClothesNames.id = TagAge.cid AND ClothesNames.id = TagEvent.cid AND ClothesNames.id = TagGender.cid AND ClothesNames.id = TagStyle.cid AND age = ? AND gender = ? ", [req.body.Age, req.body.radio_button_gender], function (err, result, fields) {
     if (err) throw err;
 
       var JsonParce = JSON.parse(JSON.stringify(result));
@@ -167,11 +159,11 @@ app.post('/handler', function(req, res, next) {
           //var clothPoints = [];
           for (var i = 0; i < count; i++) {              
               console.log(JsonParce[i].name + " Имя и очкo " + JsonParce[i].clothPoints);
-          if (JsonParce[i].event == req.body.Event){
+          if (JsonParce[i].event == req.body.radio_button_event){
               JsonParce[i].clothPoints += 5;
           }
           
-           if (JsonParce[i].style == req.body.Style){
+           if (JsonParce[i].style == req.body.radio_button_style){
                JsonParce[i].clothPoints += 1;
           }
 
@@ -181,7 +173,7 @@ app.post('/handler', function(req, res, next) {
            { var t = JsonParce[j+1]; JsonParce[j+1] = JsonParce[j]; JsonParce[j] = t; }
         }
      }      var gender;
-              if(req.body.Gender == 1){
+              if(req.body.radio_button_gender == 1){
                   gender = "М";
               }
               else {
