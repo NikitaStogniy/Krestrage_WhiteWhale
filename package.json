@@ -1,13 +1,11 @@
 {
   "name": "lophohore",
   "version": "1.0.0",
-  "description": "MVP of Lop. Project",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jabkadev.com",
-  "ass author": "Daniil Sipacow",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
