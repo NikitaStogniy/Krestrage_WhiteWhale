@@ -15,8 +15,14 @@
     <title>Krestrage</title>
 </head>
 <div class="main_div">
+    <% if (userAuth==0) {%>
+
     <% include ./partials/menu.ejs %>
-    <body>
+        <% }else {%>
+            <% include ./partials/loginmenu.ejs %>
+        <% }%>
+    <div class="some-element">
+        <body>
 <form action="/handler" method="POST" align="left">
     <div class="container">
 
@@ -40,6 +46,7 @@
             <div class="col">
 
                 <div class="ad_box">
+                    <a href='<%=adBoxSrc[i]%>'>
 
                     <div class="ad_box_image_box">
 
@@ -56,6 +63,7 @@
                         </div>
 
                     </div>
+                    </a>
 
                 </div>
 
@@ -118,7 +126,15 @@
                                 <div class="slider">
 
                                     <div class="slidecontainer">
-                                        <input type="range" min="1" max="100" value="1" class="slider" name="Age" id="age">
+                                      <!--  <input type="range" min="1" max="100" value="1" class="slider" name="Age" id="age"> -->
+                                        <input type="range" min="1" max="100" id="age_size"
+                                               name="rangeInput_age" value="1" class="slider" oninput="amount_age.value=rangeInput_age.value">
+                                    </div>
+
+                                    <div class="slider_value">
+
+                                        <output name="amount_age" id="amount_age" for="rangeInput_age">0</output>
+
                                     </div>
 
                                 </div>
@@ -150,7 +166,14 @@
                                 <div class="slider">
 
                                     <div class="slidecontainer">
-                                        <input type="range" min="1" max="4" value="2" class="slider" name="Size" id="Size">
+                                        <input type="range" min="0" max="3" id="rangeInput_size"
+                                               name="rangeInput_size" value="0" class="slider" oninput="var size = ['XS', 'S', 'M' ,'L']; amount_size.value=size[rangeInput_size.value]">
+                                    </div>
+
+                                    <div class="slider_value">
+
+                                        <output name="amount_size" id="amount_size" for="rangeInput">0</output>
+
                                     </div>
 
                                 </div>
@@ -287,12 +310,29 @@
         </div>
 
     </div>
+    <script>
+        function updateTextInput(val) {
+            document.getElementById('second_slider_output').value=val;
+        }
+
+    </script>
 </form>
+
+<script>
+
+    var size = ['xs', 's', 'm' ,'l'];
+    document.getElementById('amount_size').value='XS';
+
+    document.getElementById('amount_age').value=1
+
+</script>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
+    </div>
 </div>
 </html>

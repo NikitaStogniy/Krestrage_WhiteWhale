@@ -15,12 +15,99 @@
     <title>Krestrage</title>
 </head>
 <div class="main_div">
-    <% include ./partials/menu.ejs %>
+    <% if (userAuth==0) {%>
+
+        <% include ./partials/menu.ejs %>
+    <% }else {%>
+        <% include ./partials/loginmenu.ejs %>
+    <% }%>
     <body>
 
+<div class="flex_center">
+    <div class="container">
 
+    <div class="row">
 
+        <div class="col">
 
+            <div class="partner_box">
+
+                <div style="background-image: url('/images/Lw.png')" class="partner_image"></div>
+
+                <div class="partner_name">Louis Vuitton</div>
+
+            </div>
+
+        </div>
+
+        <div class="col">
+
+            <div class="partner_box">
+
+                <div style="background-image: url('/images/Lamoda.png')" class="partner_image"></div>
+
+                <div class="partner_name">La'moda</div>
+
+            </div>
+
+        </div>
+
+        <div class="col">
+
+            <div class="partner_box">
+
+                <div style="background-image: url('/images/hermes.png')" class="partner_image"></div>
+
+                <div class="partner_name">Hermes</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col">
+
+            <div class="partner_box">
+
+                <div style="background-image: url('/images/chanel.png')" class="partner_image"></div>
+
+                <div class="partner_name">Chanel</div>
+
+            </div>
+
+        </div>
+
+        <div class="col">
+
+            <div class="partner_box">
+
+                <div style="background-image: url('/images/adidas.png')" class="partner_image"></div>
+
+                <div class="partner_name">Adidas</div>
+
+            </div>
+
+        </div>
+
+        <div class="col">
+
+            <div class="partner_box">
+
+                <div style="background-image: url('/images/burberry.png')" class="partner_image"></div>
+
+                <div class="partner_name">Burberry</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -28,48 +28,9 @@
 
                     <div class="col">
 
-                        <p class="big_h">Эти вещи созданы для вас:</p>
+                        <p class="big_h">Уведомление об отсутствии товаров удовлетворяющих вашим предпочтениям отправленно разработчикам.</p>
 
                     </div>
-
-                </div>
-
-                <div class="row">
-                    <% for(var i=0; i<cardName.length; i++) {%>
-                    <div class="col">
-
-                        <div class="cloth_card">
-
-                            <div class="cloth_image" style="background-image: url('<%=cardImage[i] %>')"></div>
-
-                            <div class="cloth_name_block">
-
-                                <div class="container">
-
-                                    <div class="row">
-
-                                        <div class="col">
-                                            <div class="ad_box_box">
-
-                                            <div class="result_icons like_div" href="/like/<%=cardId[i] %>"></div>
-
-                                            <div class="name_div"><%=cardName[i] %></div>
-
-                                            <div class="result_icons more_div" href="/more/<%=cardId[i] %>"></div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <%} %>
 
                 </div>
 

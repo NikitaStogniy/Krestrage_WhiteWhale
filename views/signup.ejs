@@ -14,10 +14,10 @@
     <% include ./partials/menu.ejs %>
     <body>
     <div class="content">
-        <form class="form shadow" action="login" method="post">
+        <form class="form shadow" id="signup" name="signup" action="/signup" method="post">
             <div class="form__item form__item--full">
-                <label class="form__label" for="username">Ваш логин *</label>
-                <input class="form__input" type="text" name="firstname" id="firstname" required>
+                <label class="form__label" for="firstname">Ваш логин *</label>
+                <input class="form__input" type="text" name="username" required>
                 <div class="form__error"></div>
             </div>
             <div class="form__item form__item--full">

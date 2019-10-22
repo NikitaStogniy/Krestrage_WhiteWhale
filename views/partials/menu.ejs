@@ -1,7 +1,7 @@
 <header>
 
 <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand nav_logo" href="/">Krestrage</a>
+    <a class="navbar-brand nav_logo" href="/">Clothes</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -17,22 +17,20 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/partners">Партнеры</a>
+                <a class="nav-link" onclick="partnersAjax" href="/partners">Партнеры</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/contacts">Контакты</a>
-            </li>
+
             <li class="nav-item" id='sign_in'>
-                <a class="nav-link" href="#">Зарегистрироватся по электронной почте</a>
+                <a class="nav-link" href="/signup">Зарегистрироватся по электронной почте</a>
             </li>
             <li class="nav-item" id='vk'>
-                <a class="nav-link" href="OAUTH_VK"></a>
+                <a class="nav-link" href="/auth/vkontakte"></a>
             </li>
             <li class="nav-item" id='facebook'>
-                <a class="nav-link" href="OAUTH_VK"></a>
+                <a class="nav-link" href="/auth/facebook"></a>
             </li>
             <li class="nav-item" id='log_in'>
-                <a class="nav-link" href="LOGIN">Войти</a>
+                <a class="nav-link" href="/signin">Войти</a>
             </li>
 
         </ul>

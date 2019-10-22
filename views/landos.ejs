@@ -8,17 +8,112 @@
 
     <link rel = "stylesheet" href="styles.css"/>
 
+<style>.row{
+        margin: auto;
+        margin: 5em 0;
 
+    } </style>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>Krestrage</title>
 </head>
 <div class="main_div">
-    <% include ./partials/menu.ejs %>
+    <% if (userAuth==0) {%>
+
+        <% include ./partials/menu.ejs %>
+    <% }else {%>
+        <% include ./partials/loginmenu.ejs %>
+    <% }%>
     <body>
 
+<div class="container">
 
+
+    <div class="row">
+
+        <div class="col">
+
+            <div class="landos_words">
+
+                <p class="words_header">Новый образ.<br>Всегда ваш</p>
+                <p class="words_underhead">Мы поможем вам выглядеть блистательно каждый день</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col">
+
+            <div class="people_image"></div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+<div style="height: 45vh;" class="flex_center">
+        <div class="col">
+
+            <div class="gradient_image"></div>
+
+        </div>
+
+        <div class="col">
+
+            <div class="landos_words">
+
+                <p class="words_header">Сложно выбрать?<br>Мы поможем.</p>
+                <p class="words_underhead">Благодаря нашим алгоритмам и нейронным сетям вы получаете подходящую именно для вас</p>
+
+            </div>
+
+        </div>
+</div>
+    </div>
+
+    <div class="row">
+
+        <div class="col">
+
+            <div class="landos_words">
+
+                <p class="words_header center_header_words">Знакомтесь -<br>Крестраж</p>
+                <p style="margin: auto; text-align: center;" class="words_underhead">Каждый день он анализирует персональные предпочтения клиентов и подбирает персональные предложения</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col">
+
+            <div class="happy_image"></div>
+            <p style="margin: auto; text-align: center;" class="words_underhead">Они счастливы благодаря правильно подобранной одежде</p>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col">
+
+            <p class="end_words_top">Готовы начать?</p>
+            <p style="margin: auto; text-align: center;" class="end_words_bottom"> <a href="/">На главную -></a></p>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 
