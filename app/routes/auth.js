@@ -55,6 +55,8 @@ module.exports = function(app, passport) {
 
     ));
 
+    app.get('/add', authController.add);
+
     function black(req, res, next) {
         if (req.isAuthenticated())
             return next();

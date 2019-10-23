@@ -77,6 +77,18 @@ exports.main = function(req, res) {
     }
 }
 
+exports.add = function(req, res) {
+
+    if (!req.isAuthenticated()) {
+        res.render("add");
+    }
+
+    else{
+        res.redirect("/");
+    }
+
+}
+
 exports.logout = function(req, res) {
 
     req.session.destroy(function(err) {

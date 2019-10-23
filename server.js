@@ -68,22 +68,18 @@ app.use(express.json());
 
 app.set("view engine", "ejs");
 
-
-app.get('/add', function(req, res) {
-  res.sendfile('views/add.html');
-});
-
 app.get('/admin', function(req, res) {
     res.render("admin", {user: res.locals.user,});
 });
 
-app.post('/adder', function(req, res, next)
+app.post('/add', function(req, res, next)
 {
     if (err) throw err;
     con.query("SELECT COUNT(*) AS count FROM ClothesNames", function (err, rows, fields) {
     if (err) throw err;
     count = rows[0].count;
-        count = count + 1;
+    count = count + 1;
+
     var ClothesNamesMass = {
         name: req.body.name,
         src: req.body.src,
@@ -91,7 +87,7 @@ app.post('/adder', function(req, res, next)
     }
 
     var TagAgeMass = {
-        age: req.body.rangeInput_age,
+        age: req.body.Age,
         cid: count
     }
            
@@ -129,7 +125,7 @@ app.post('/adder', function(req, res, next)
    // if (err) throw err;
    
    // });
-        res.sendfile('views/add.html');
+        res.redirect('/add');
   });   
       
 app.post('/handler', function(req, res, next) {
@@ -210,5 +206,5 @@ app.post('/handler', function(req, res, next) {
 });
 });
 
-console.log('Сервер стартовалs!');
-app.listen(80);
+console.log('Сервер стартовал!');
+app.listen(8080);

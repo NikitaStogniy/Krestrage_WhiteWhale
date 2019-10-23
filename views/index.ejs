@@ -127,8 +127,8 @@
 
                                     <div class="slidecontainer">
                                       <!--  <input type="range" min="1" max="100" value="1" class="slider" name="Age" id="age"> -->
-                                        <input type="range" min="1" max="100" id="age_size"
-                                               name="rangeInput_age" value="1" class="slider" oninput="amount_age.value=rangeInput_age.value">
+                                        <input type="range" min="1" max="6" id="age_size"
+                                               name="rangeInput_age" value="1" class="slider" oninput="var age = ['0', '10-14', '15-17', '18-25' ,'25-30' ,'30-50', '50+']; amount_age.value=age[rangeInput_age.value]">
                                     </div>
 
                                     <div class="slider_value">
@@ -151,7 +151,7 @@
 
                         <div class="col">
 
-                            <div class="quiz_name">Размер</div>
+                            <div style="margin-top: 2em;" class="quiz_name">Размер</div>
 
                         </div>
 
@@ -192,7 +192,7 @@
 
                         <div class="col">
 
-                            <div class="quiz_name">Ваш пол</div>
+                            <div style="margin-top: 2em;" class="quiz_name">Ваш пол</div>
 
                         </div>
 
@@ -320,10 +320,9 @@
 
 <script>
 
-    var size = ['xs', 's', 'm' ,'l'];
     document.getElementById('amount_size').value='XS';
 
-    document.getElementById('amount_age').value=1
+    document.getElementById('amount_age').value='10-14'
 
 </script>
 

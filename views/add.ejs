@@ -1,0 +1,320 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel = "stylesheet" href="styles.css"/>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Krestrage</title>
+</head>
+<div class="main_div">
+
+        <% include ./partials/loginmenu.ejs %>
+
+    <div class="some-element">
+        <body>
+        <form action="/add" method="POST" align="left">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col">
+
+                        <div class="quiz_p">Проверяйте данные перед отправкой</div>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="quiz_box">
+
+                        <div class="container">
+
+                            <!--First -->
+
+                            <div class="row">
+
+                                <div class="col">
+
+                                    <div class="quiz_name">Введите название</div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col">
+
+                                    <div class ="name">
+                                        <textarea rows="1" cols=50 name="name"></textarea>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col">
+
+                                    <div class="quiz_name">Ссылка на одежду</div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col">
+
+                                    <div class ="name">
+                                        <textarea rows="1" cols=50 name="src"></textarea>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col">
+
+                                    <div class="quiz_name">Ссылка на изображение</div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col">
+
+                                    <div class ="name">
+                                        <textarea rows="1" cols=50 name="imgsrc"></textarea>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col">
+
+                                    <div class="quiz_name">Ваш возраст</div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col">
+
+                                    <div class ="age">
+                                        <p><input name="Age" type="checkbox" value="1"> От 0 до 6 лет</p>
+                                        <p><input name="Age" type="checkbox" value="2"> От 7 до 15 лет</p>
+                                        <p><input name="Age" type="checkbox" value="3"> От 15 до 20 лет</p>
+                                        <p><input name="Age" type="checkbox" value="4"> От 20 до 30 лет
+                                        <p><input name="Age" type="checkbox" value="5">  От 30 до 45 лет</p>
+                                        <p><input name="Age" type="checkbox" value="6"> 45+ лет</p>
+                                        <p><input name="Size" type="checkbox" value="1"> Size+</p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <!--Second -->
+
+                            <div class="row">
+
+                                <div class="col">
+
+                                    <div style="margin-top: 2em;" class="quiz_name">Размер</div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col">
+
+                                    <div class="quiz_slider">
+
+                                        <div class="slider">
+
+                                            <div class="slidecontainer">
+                                                <input type="range" min="0" max="3" id="rangeInput_size"
+                                                       name="rangeInput_size" value="0" class="slider" oninput="var size = ['XS', 'S', 'M' ,'L']; amount_size.value=size[rangeInput_size.value]">
+                                            </div>
+
+                                            <div class="slider_value">
+
+                                                <output name="amount_size" id="amount_size" for="rangeInput">0</output>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!--Third -->
+
+
+                            <div class="row">
+
+                                <div class="col">
+
+                                    <div style="margin-top: 2em;" class="quiz_name">Ваш пол</div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col">
+
+                                    <div class="quiz_radio">
+
+                                        <div class="radio">
+
+                                            <p><input name="Gender" type="checkbox" value="1"> Мужчина</p>
+                                            <p><input name="Gender" type="checkbox" value="2"> Женщина</p>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!--fourth -->
+
+
+                            <div class="row">
+
+                                <div class="col">
+
+                                    <div class="quiz_name">Для какого события выбираете одежду</div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col">
+
+                                    <div class="quiz_radio">
+
+                                        <div class="radio">
+
+                                            <p><input name="radio_button_event" type="checkbox" value="1"> На выход</p>
+                                            <p><input name="radio_button_event" type="checkbox" value="2"> На свадьбу (гость)</p>
+                                            <p><input name="radio_button_event" type="checkbox" value="3"> Для деловой встречи</p>
+                                            <p><input name="radio_button_event" type="checkbox" value="4"> Для работы (строгий стиль)</p>
+                                            <p><input name="radio_button_event" type="checkbox" value="5"> Для выходного дня</p>
+                                            <p><input name="radio_button_event" type="checkbox" value="6"> На каждый день</p>
+                                            <p><input name="radio_button_event" type="checkbox" value="7"> Пляжный отдых</p>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!--fifth -->
+
+
+                            <div class="row">
+
+                                <div class="col">
+
+                                    <div class="quiz_name">Ваш предпочтительный стиль одежды</div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col">
+
+                                    <div class="quiz_radio">
+
+                                        <div class="radio">
+
+                                            <p><input name="radio_button_style" type="checkbox" value="1"> Строгий</p>
+                                            <p><input name="radio_button_style" type="checkbox" value="2"> Свободный</p>
+                                            <p><input name="radio_button_style" type="checkbox" value="3"> Яркий</p>
+                                            <p><input name="radio_button_style" type="checkbox" value="4"> Top Trands</p>
+                                            <p><input name="radio_button_style" type="checkbox" value="5"> Дизайнерская одежда</p>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col">
+
+                                    <div class="quiz_enter">
+                                        <p><input class="EntBtn" type="submit" value="Вперед!"></p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <script>
+
+                function updateTextInput(val) {
+                    document.getElementById('second_slider_output').value=val;
+                }
+
+            </script>
+        </form>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        </body>
+    </div>
+</div>
+</html>
