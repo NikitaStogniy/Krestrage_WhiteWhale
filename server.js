@@ -60,6 +60,7 @@ var con = mysql.createConnection({
 
 con.connect(function(err) {
 
+
 app.use(express.static(__dirname + "/assets"));
 
 app.use(express.static(__dirname + "/views"));
@@ -132,14 +133,19 @@ app.post('/handler', function(req, res, next) {
  
   if (err) throw err;
 
+    con.query("SELECT * FROM ClothesNames", function (err, rows, result) {
+        var JsonParce = JSON.parse(JSON.stringify(result));
+        console.log(JsonParce);
+
+    });
+
     con.query("SELECT COUNT(*) AS count FROM ClothesNames, TagAge, TagGender WHERE ClothesNames.id = TagAge.cid AND ClothesNames.id = TagGender.cid AND age = ? AND gender = ?", [req.body.rangeInput_age, req.body.radio_button_gender], function (err, rows, fields) {
     if (err) throw err;
     count = rows[0].count;
         console.log(req.body.rangeInput_age, req.body.radio_button_gender);
             if (count == 0) {
 
-                res.render("query_result_none", {
-                });
+                res.render("query_result_none", {});
 
     }
             con.query("SELECT name, clothPoints, src, imgsrc, age, style, event, gender FROM ClothesNames, TagAge, TagEvent, TagGender, TagStyle WHERE ClothesNames.id = TagAge.cid AND ClothesNames.id = TagEvent.cid AND ClothesNames.id = TagGender.cid AND ClothesNames.id = TagStyle.cid AND age = ? AND gender = ? ", [req.body.rangeInput_age, req.body.radio_button_gender], function (err, result, fields) {
@@ -207,4 +213,4 @@ app.post('/handler', function(req, res, next) {
 });
 
 console.log('Сервер стартовал!');
-app.listen(80);
+app.listen(8080);
