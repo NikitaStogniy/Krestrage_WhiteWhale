@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/JabkaSail/Krestrage_WhiteWhale#readme",
   "dependencies": {
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.0.0",
     "bcrypt-nodejs": "0.0.3",
     "connect-flash": "^0.1.1",
     "connect-redis": "^4.0.2",
